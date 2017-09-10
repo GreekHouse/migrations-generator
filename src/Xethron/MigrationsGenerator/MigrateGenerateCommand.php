@@ -133,7 +133,7 @@ class MigrateGenerateCommand extends GeneratorCommand {
 	 *
 	 * @return void
 	 */
-	public function fire()
+	public function handle()
 	{
 		$this->info( 'Using connection: '. $this->option( 'connection' ) ."\n" );
         if ($this->option('connection') !== $this->config->get('database.default')) {
@@ -263,7 +263,7 @@ class MigrateGenerateCommand extends GeneratorCommand {
 	protected function generate()
 	{
 		if ( $this->fields ) {
-			parent::fire();
+			parent::handle();
 
 			if ( $this->log ) {
 				$file = $this->datePrefix . '_' . $this->migrationName;
